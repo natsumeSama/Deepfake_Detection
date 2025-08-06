@@ -10,6 +10,7 @@ NUM_EPOCHS = 20
 BATCH_SIZE = 32
 LEARNING_RATE = 0.001
 DATA_DIR = Path(__file__).resolve().parent.parent / "data" / "deepfakes" / "db"
+MODELS_DIR = Path(__file__).resolve().parent.parent / "models"
 
 # Select device (GPU if available, else CPU)
 device = "cuda" if torch.cuda.is_available() else "cpu"
@@ -60,7 +61,7 @@ def train_and_save(transform, input_channels: int, model_name: str) -> None:
     )
 
     # Save the trained model
-    utils.save_model(model=model, target_dir="models", model_name=model_name)
+    utils.save_model(model=model, target_dir=MODELS_DIR, model_name=model_name)
 
 
 # ==========================
