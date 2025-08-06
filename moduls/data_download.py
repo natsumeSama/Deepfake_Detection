@@ -18,8 +18,13 @@ def data_download(file_id: str) -> Path:
     Returns:
         Path: Path to the extracted dataset directory.
     """
-    data_path = Path("data/")
+    # Ensure the data folder is created outside the 'modules' folder
+    project_root = Path(__file__).resolve().parent.parent
+    data_path = project_root / "data"
     dataset_path = data_path / "deepfakes" / "db"
+
+    # Create base data directory if it doesn't exist
+    data_path.mkdir(parents=True, exist_ok=True)
 
     # Check if dataset already exists and contains files
     if dataset_path.exists() and any(dataset_path.iterdir()):
@@ -91,5 +96,5 @@ if __name__ == "__main__":
     dataset_path = data_download("1RvERAZT7CjBdA_y4fTENYbG6qib921x9")
 
     # Show dataset info
-    data_folder = os.path.join(os.path.dirname(__file__), "../data/deepfakes/db")
+    data_folder = Path(__file__).resolve().parent.parent / "data" / "deepfakes" / "db"
     data_info(data_folder)

@@ -11,7 +11,7 @@ from typing import Tuple
 # ==========================
 BATCH_SIZE = 32
 MODEL_DIR = Path(__file__).parent / "../models"
-DATA_DIR = "data/deepfakes/db"
+DATA_DIR = Path(__file__).resolve().parent.parent / "data" / "deepfakes" / "db"
 device = "cuda" if torch.cuda.is_available() else "cpu"
 
 loss_fn = torch.nn.BCEWithLogitsLoss()

@@ -64,6 +64,7 @@ Deepfake_Detection/
 The dataset is automatically downloaded via `download_data.py`.
 
 ```bash
+cd moduls
 python download_data.py
 ```
 

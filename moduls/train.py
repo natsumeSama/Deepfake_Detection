@@ -1,7 +1,7 @@
-import os
 import torch
 import data_setup, engine, model_builder, utils
 from torchvision import transforms
+from pathlib import Path
 
 # ==========================
 # Configuration
@@ -9,7 +9,7 @@ from torchvision import transforms
 NUM_EPOCHS = 20
 BATCH_SIZE = 32
 LEARNING_RATE = 0.001
-DATA_DIR = "data/deepfakes/db"
+DATA_DIR = Path(__file__).resolve().parent.parent / "data" / "deepfakes" / "db"
 
 # Select device (GPU if available, else CPU)
 device = "cuda" if torch.cuda.is_available() else "cpu"
