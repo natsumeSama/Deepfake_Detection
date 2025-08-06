@@ -65,7 +65,7 @@ The dataset is automatically downloaded via `download_data.py`.
 
 ```bash
 cd moduls
-python download_data.py
+python data_download.py
 ```
 
 This script:
@@ -96,7 +96,7 @@ This will:
 To evaluate the trained models:
 
 ```bash
-python evaluate.py
+python evaluation.py
 ```
 
 Example output:
